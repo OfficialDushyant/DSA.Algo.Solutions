@@ -1,5 +1,5 @@
 # php/Dockerfile
-FROM php:8.3-cli
+FROM php:8.2-cli
 
 # Install system dependencies (e.g., unzip for Composer)
 RUN apt-get update && apt-get install -y unzip
