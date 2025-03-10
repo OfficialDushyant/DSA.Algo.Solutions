@@ -11,4 +11,21 @@ export default class ArrayAndHashing{
         }
         return [];
     }
+
+    containsDuplicate(nums: number[]): boolean {
+        const seen = new Set<number>();
+        for(let i = 0; i < nums.length; i++){
+            if(seen.has(nums[i]))  { 
+                return true; 
+            }
+            seen.add(nums[i]);
+        }
+        return false;
+    }
+
+    containsDuplicateAlternative(nums: number[]): boolean {
+        const newNumsSet = new Set(nums);
+        return newNumsSet.size !== nums.length;
+
+    }
 }
