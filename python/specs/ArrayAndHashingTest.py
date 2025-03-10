@@ -19,6 +19,21 @@ class ArrayAndHashingTest(unittest.TestCase):
         self.assertEqual(self.array_and_hashing.two_sum(
             [3, 3], 7), [])
 
+    def test_contains_duplicate(self):
+        self.assertTrue(
+            self.array_and_hashing.contains_duplicate([1, 2, 3, 1]))
+        self.assertFalse(
+            self.array_and_hashing.contains_duplicate([1, 2, 3, 4]))
+        self.assertTrue(self.array_and_hashing.contains_duplicate(
+            [1, 1, 1, 3, 3, 4, 3, 2, 4, 2]))
+
+        self.assertTrue(
+            self.array_and_hashing.contains_duplicate_alternative([1, 2, 3, 1]))
+        self.assertFalse(
+            self.array_and_hashing.contains_duplicate_alternative([1, 2, 3, 4]))
+        self.assertTrue(self.array_and_hashing.contains_duplicate_alternative(
+            [1, 1, 1, 3, 3, 4, 3, 2, 4, 2]))
+
 
 if __name__ == "__main__":
     unittest.main()
