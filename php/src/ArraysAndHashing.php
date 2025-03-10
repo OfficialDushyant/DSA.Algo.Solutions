@@ -19,16 +19,7 @@ class ArraysAndHashing
         return [];
     }
 
-    public function containsDuplicate(array $nums): bool
-    {
-        if(count($nums) != count(array_unique($nums))) {
-            return true;
-        }
-
-        return false;
-    }   
-
-    public function containsDuplicateAlternative(array $nums): bool{
+    public function containsDuplicate(array $nums): bool{
         $seen = [];
         foreach ($nums as $num){
             if(isset($seen[$num])){
@@ -38,4 +29,13 @@ class ArraysAndHashing
         }
         return false;
     }
+
+    public function containsDuplicateAlternative (array $nums): bool
+    {
+        if(count($nums) != count(array_unique($nums))) {
+            return true;
+        }
+
+        return false;
+    }   
 }

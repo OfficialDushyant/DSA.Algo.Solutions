@@ -13,12 +13,12 @@ class ArrayAndHashing:
         return []
 
     def contains_duplicate(self, nums: List[int]) -> bool:
-        return len(set(nums)) != len(nums)
-
-    def contains_duplicate_alternative(self, nums: List[int]) -> bool:
         seen = {}
         for num in nums:
             if num in seen:
                 return True
             seen[num] = True
         return False
+
+    def contains_duplicate_alternative(self, nums: List[int]) -> bool:
+        return len(set(nums)) != len(nums)
