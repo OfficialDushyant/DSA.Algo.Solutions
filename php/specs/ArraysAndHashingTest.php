@@ -32,7 +32,21 @@ class ArraysAndHashingTest extends TestCase
         $this->assertTrue($this->arrayAndHashing->containsDuplicateAlternative([1, 2, 3, 1]));
         $this->assertFalse($this->arrayAndHashing->containsDuplicateAlternative([1, 2, 3, 4]));
         $this->assertTrue($this->arrayAndHashing->containsDuplicateAlternative([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]));
+    }
 
-        
+    public function testIsAnagram()
+    {
+        $this->assertTrue($this->arrayAndHashing->isAnagram("anagram", "nagaram"));
+        $this->assertFalse($this->arrayAndHashing->isAnagram("rat", "car"));
+        $this->assertFalse($this->arrayAndHashing->isAnagram("a", "ab"));
+        $this->assertFalse($this->arrayAndHashing->isAnagram("ab", "a"));
+        $this->assertFalse($this->arrayAndHashing->isAnagram("aacc", "ccac"));
+
+
+        $this->assertTrue($this->arrayAndHashing->isAnagramAlternative("anagram", "nagaram"));
+        $this->assertFalse($this->arrayAndHashing->isAnagramAlternative("rat", "car"));
+        $this->assertFalse($this->arrayAndHashing->isAnagramAlternative("a", "ab"));
+        $this->assertFalse($this->arrayAndHashing->isAnagramAlternative("ab", "a"));
+        $this->assertFalse($this->arrayAndHashing->isAnagramAlternative("aacc", "ccac"));
     }
 }

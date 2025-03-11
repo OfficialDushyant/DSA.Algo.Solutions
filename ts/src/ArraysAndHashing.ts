@@ -26,6 +26,22 @@ export default class ArrayAndHashing{
     containsDuplicateAlternative(nums: number[]): boolean {
         const newNumsSet = new Set(nums);
         return newNumsSet.size !== nums.length;
+    }
 
+    isAnagram(s: string, t: string): boolean {
+        if(s.length !== t.length) {
+            return false;
+        }
+        const sMap = new Map<string, number>();
+        for(let i = 0; i < s.length; i++){
+            sMap.set(s[i], (sMap.get(s[i]) || 0) + 1);
+            sMap.set(t[i], (sMap.get(t[i]) || 0) - 1);
+        }
+        for(let value of sMap.values()){
+            if(value !== 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

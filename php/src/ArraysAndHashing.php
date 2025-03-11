@@ -19,10 +19,11 @@ class ArraysAndHashing
         return [];
     }
 
-    public function containsDuplicate(array $nums): bool{
+    public function containsDuplicate(array $nums): bool
+    {
         $seen = [];
-        foreach ($nums as $num){
-            if(isset($seen[$num])){
+        foreach ($nums as $num) {
+            if (isset($seen[$num])) {
                 return true;
             }
             $seen[$num] = true;
@@ -30,12 +31,61 @@ class ArraysAndHashing
         return false;
     }
 
-    public function containsDuplicateAlternative (array $nums): bool
+    public function containsDuplicateAlternative(array $nums): bool
     {
-        if(count($nums) != count(array_unique($nums))) {
+        if (count($nums) != count(array_unique($nums))) {
             return true;
         }
 
         return false;
-    }   
+    }
+
+    public function isAnagram(string $s, string $t): bool
+    {
+        if (strlen($s) != strlen($t)) {
+            return false;
+        }
+
+        $char_map = [];
+
+        for ($i = 0; $i < strlen($s); $i++) {
+            if (isset($char_map[$s[$i]])) {
+                $char_map[$s[$i]]++;
+            } else {
+                $char_map[$s[$i]] = 1;
+            }
+        }
+        
+        for ($i = 0; $i < strlen($t); $i++) {
+            if (isset($char_map[$t[$i]]) && $char_map[$t[$i]] > 0) {
+                $char_map[$t[$i]]--;
+            } else {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public function isAnagramAlternative(string $s, string $t): bool
+    {
+        if (strlen($s) != strlen($t)) {
+            return false;
+        }
+
+        $char_map = [];
+
+        for ($i = 0; $i < strlen($s); $i++) {
+            isset($char_map[$s[$i]]) ? $char_map[$s[$i]]++ : $char_map[$s[$i]] = 1;
+            isset($char_map[$t[$i]]) ? $char_map[$t[$i]]-- : $char_map[$t[$i]] = -1;
+        }
+
+        foreach ($char_map as $char => $count) {
+            if ($count != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
