@@ -34,6 +34,26 @@ class ArrayAndHashingTest(unittest.TestCase):
         self.assertTrue(self.array_and_hashing.contains_duplicate_alternative(
             [1, 1, 1, 3, 3, 4, 3, 2, 4, 2]))
 
+    def test_valid_anagram(self):
+        self.assertTrue(
+            self.array_and_hashing.valid_anagram("anagram", "nagaram"))
+        self.assertFalse(self.array_and_hashing.valid_anagram("rat", "car"))
+        self.assertFalse(self.array_and_hashing.valid_anagram("a", "ab"))
+        self.assertFalse(self.array_and_hashing.valid_anagram("ab", "a"))
+        self.assertFalse(
+            self.array_and_hashing.valid_anagram("aacc", "ccac"))
+
+        self.assertTrue(
+            self.array_and_hashing.valid_anagram_alternative("anagram", "nagaram"))
+        self.assertFalse(
+            self.array_and_hashing.valid_anagram_alternative("rat", "car"))
+        self.assertFalse(
+            self.array_and_hashing.valid_anagram_alternative("a", "ab"))
+        self.assertFalse(
+            self.array_and_hashing.valid_anagram_alternative("ab", "a"))
+        self.assertFalse(
+            self.array_and_hashing.valid_anagram_alternative("aacc", "ccac"))
+
 
 if __name__ == "__main__":
     unittest.main()

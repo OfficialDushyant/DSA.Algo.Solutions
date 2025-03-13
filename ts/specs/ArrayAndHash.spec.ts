@@ -28,4 +28,14 @@ describe('Testing Array and Hashing problems', () => {
         expect(containsDuplicateAlternative([1, 2, 3, 4])).toBe(false);
         expect(containsDuplicateAlternative([1, 1, 1, 3, 3, 4, 3, 2, 4, 2])).toBe(true);
     });
+
+    it('should test isAnagram problem', () => {
+        const arrayAndHashing = new ArrayAndHashing();
+        const isAnagram = arrayAndHashing.isAnagram;
+
+        expect(isAnagram("anagram", "nagaram")).toBe(true);
+        expect(isAnagram("rat", "car")).toBe(false);
+        expect(isAnagram("a", "ab")).toBe(false);
+        expect(isAnagram("aacc", "ccac")).toBe(false);
+    });
 });
